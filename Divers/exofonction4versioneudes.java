@@ -188,7 +188,7 @@ public class exofonction4versioneudes {
 
         }
 
-            return decision;
+            return decision; // dans tous les cas on veut que la fonction nous retourne decision ! Ensuite en fonction de la réponse cette decision change la veleur booléene.
         
     }
 
