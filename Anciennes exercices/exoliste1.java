@@ -1,15 +1,12 @@
-
 import java.util.ArrayList;
 import java.util.Scanner;
-import Developpement.Fonctions.supprimerliste;
+import Fonctions.methodes1;
 
-public class exoliste1 {
+public class ExoListe1 {
     public static void main(String[] args) {
-
         Scanner clavier = new Scanner(System.in);
 
         ArrayList<String> justiceleague = new ArrayList<>();
-
         justiceleague.add("Batman");
         justiceleague.add("Superman");
         justiceleague.add("Wonder Woman");
@@ -17,20 +14,25 @@ public class exoliste1 {
         justiceleague.add("The Flash");
         justiceleague.add("The Martian");
 
-        System.out.println("These are the members of the Justice League:");
-        supprimerliste.heroes(justiceleague);
+        while (justiceleague.size()>0){
 
-        System.out.println("\nLex Luthor, which member of the Justice League would you like to erase?");
+        System.out.println("These are the members of the Justice League: \n"); //
+        methodes1.heroes(justiceleague);
+
+        System.out.println("\nLex Luthor, which member would you like to erase?");
         String removehero = clavier.nextLine();
 
-        // Capture the message returned by supprimer
-        String result = supprimerliste.supprimer(justiceleague, removehero);
-
-        // Print that message (which may say removed or not found)
+        String result = methodes1.supprimer(justiceleague, removehero);
         System.out.println(result);
+}
+        while (justiceleague.size()>0){
 
-        System.out.println("These are the remaining members:\n");
-        supprimerliste.heroes(justiceleague);
+        System.out.println("\nThese are the remaining members:\n");
+        methodes1.heroes(justiceleague);
+        System.out.println("\n");
+        }
+
+        System.out.println("Lex Luthor, you have defeated all the members of the Justice League.");
 
         clavier.close();
     }
