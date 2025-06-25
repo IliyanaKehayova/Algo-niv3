@@ -2,9 +2,13 @@
 package Fonctions;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.text.DateFormatter;
 
@@ -28,17 +32,17 @@ public static String supprimer(ArrayList<String> justiceleague, String removeher
     }
 
 
-public static boolean questionYesNo(String question) { 
+public static boolean questionYesNo(String response) { 
 
         while (true) {
             
+            String question;
             System.out.print(question);
             List<String> positive = List.of("o", "oui", "y", "yes", "t", "true");
             List<String> negative = List.of("n", "non", "no", "f", "false");
 
             try {
                 String response = sc.nextLine().trim().toLowerCase();
-
                 if (positive.contains(response)) {
                     return true;  
                 } else if (negative.contains(response)) {
@@ -57,4 +61,62 @@ public static String dateformatter(LocalDate date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         return date.format(formatter);
     }
+
+
+public static double calculpourcentage(Double chiffre, Double pourcentage){
+    double result = chiffre * pourcentage/100;
+    return result; 
+
+}
+
+public static String banque(int pret, int salaire, String cdi, int apport, String propriete) {
+    String decision;
+    if (cdi.equals("OUI") && salaire >= 3000 && apport > pret * 25 / 100) {
+        decision = "Vous êtes éligible pour ce prêt";
+    } else if (propriete.equals("OUI")) {
+        decision = "Vous êtes éligible pour ce prêt";
+    } else {
+        decision = "Vous n'êtes pas éligible pour ce prêt";
+    }
+    return decision;
+}
+
+
+public static boolean continuer(String reponse) {
+    if (reponse.equalsIgnoreCase("oui")) {
+        return true;
+    } else if (reponse.equalsIgnoreCase("non")) {
+        return false;
+    } else {
+        System.out.println("Merci de répondre par oui ou non.");
+        return false; // 
+    }
+}
+
+
+
+public static double calculateFinalPrice(double price, boolean sale, LocalDate storageDate, LocalDateTime now) {
+    if (sale) {
+        return price * 0.6;
+    }
+
+    long months = ChronoUnit.MONTHS.between(storageDate.withDayOfMonth(1), now.withDayOfMonth(1));
+    if (months > 4) {
+        return price * 0.9;
+    }
+
+    return price;
+}
+        
+
+public static boolean removearticle(String reponse) {
+    if (reponse.equalsIgnoreCase("oui")) {
+        return true;
+    } else if (reponse.equalsIgnoreCase("non")) {
+        return false;
+    } else {
+        System.out.println("Merci de répondre par oui ou non.");
+        return false;
+    }
+}
 }

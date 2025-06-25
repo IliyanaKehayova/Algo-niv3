@@ -9,22 +9,24 @@ public class exoduree1 {
         Scanner scanner = new Scanner(System.in);
 
 
-        System.out.print("Enter your date of birth (dd-MM-yyyy): ");
-        String input = scanner.nextLine();
+        System.out.print("Enter a moment in history (dd-MM-yyyy): ");
+        String input1 = scanner.nextLine();
+
+        System.out.print("Enter a different moment in history (dd-MM-yyyy): ");
+        String input2 = scanner.nextLine();
 
      
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
         try {
          
-            LocalDate birthDate = LocalDate.parse(input, formatter); 
+            LocalDate history1 = LocalDate.parse(input1, formatter); 
 
-         
-            LocalDate firstdate = LocalDate.parse("22-02-2025", formatter);
+            LocalDate history2 = LocalDate.parse(input2, formatter); 
+            
 
-
-            long daysOld = ChronoUnit.DAYS.between(birthDate, firstdate);
-            System.out.println("You were " + daysOld + " days old when we started dating.");
+            long daysbetween = ChronoUnit.DAYS.between(history1, history2);
+            System.out.println(daysbetween + " have passed between "+history1+" and "+history2);
 
         } catch (Exception e) {
             System.out.println("Invalid date format! Please use dd-MM-yyyy (e.g. 18-06-2000).");
