@@ -55,7 +55,7 @@ public class jalonblanc24062025 {
         do {
 
             try {
-                System.out.println("Veuillez entrer le nom de la ville d'origine du produit. (Ville/PAYS)");
+                System.out.println("Veuillez entrer le nom du produit.");
                 country = stock.nextLine();
             } catch (InputMismatchException e) {
                 System.out.println("Format invalide.");

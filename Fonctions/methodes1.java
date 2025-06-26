@@ -94,7 +94,6 @@ public static boolean continuer(String reponse) {
 }
 
 
-
 public static double calculateFinalPrice(double price, boolean sale, LocalDate storageDate, LocalDateTime now) {
     if (sale) {
         return price * 0.6;
@@ -118,5 +117,48 @@ public static boolean removearticle(String reponse) {
         System.out.println("Merci de répondre par oui ou non.");
         return false;
     }
+                                                    }
+
+public static double reductionage(int age, int vol){
+        int reductionage;
+        if (age<18)
+        {reductionage=vol*20/100;}
+        else if(age>60)
+        {reductionage=vol*40/100;}
+        else{reductionage=0;};
+        return reductionage;
+
 }
+
+
+public static double reductionplace(int vol, int places){
+        int reducplace;
+        if(places>60)
+        {reducplace=vol*20/100;}
+        else if(places<20)
+        {reducplace=vol*20/100;}
+        else{reducplace=0;};
+        return reducplace; 
+                                                        }
+
+
+
+public static double reducbusiness(String classe, int vol){
+        int reducbusiness;
+        if(classe.equals("OUI")){reducbusiness=vol*20/100;}
+        else{reducbusiness=0;};
+        return reducbusiness;
+                                                          }
+
+
+public static int truefalse(String answer, int i) {
+    if ((i == 1 || i == 2 || i == 5) && answer.equalsIgnoreCase("vrai")) {
+        return 1;
+    } else if ((i == 3 || i == 4) && answer.equalsIgnoreCase("faux")) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
 }
