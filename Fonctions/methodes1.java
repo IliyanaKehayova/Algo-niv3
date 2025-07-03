@@ -95,15 +95,15 @@ public static boolean continuer(String reponse) {
 
 
 public static double calculateFinalPrice(double price, boolean sale, LocalDate storageDate, LocalDateTime now) {
-    if (sale) {
-        return price * 0.6;
-    }
+    
 
     long months = ChronoUnit.MONTHS.between(storageDate.withDayOfMonth(1), now.withDayOfMonth(1));
     if (months > 4) {
         return price * 0.9;
     }
-
+    if (sale && !(months > 4)) {
+        return price * 0.6;
+    }
     return price;
 }
         
